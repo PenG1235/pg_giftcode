@@ -36,7 +36,7 @@ if Config.Framework == 'ESX' then
                         description = Config.Notify['received_vehicle']:format(giftcode.reward),
                         type = 'success'
                     })
-                    TriggerClientEvent('pg_giftcode:SpawnVehicle', xPlayer.source, giftcode.reward)
+                    TriggerClientEvent('pg_giftcode:SpawnVehicle', xPlayer.source, giftcode.reward, giftcode.reward)
                 else
                     TriggerClientEvent('ox_lib:notify', xPlayer.source, {
                         description = Config.Notify['invalid_reward'],
@@ -82,7 +82,14 @@ elseif Config.Framework == 'QBCore' then
                         type = 'success'
                     })
                 elseif giftcode.reward_type == 'item' then
-                    Player.Functions.AddItem(giftcode.reward, tonumber(giftcode.amount))
+                    local source = source
+                    if Config.Inventory == 'qb-inventory' then
+                        exports['qb-inventory']:AddItem(Player.PlayerData.source, giftcode.reward, tonumber(giftcode.amount), false, false, nil)
+                    elseif Config.Inventory == 'ps-inventory' then
+                        exports['ps-inventory']:AddItem(Player.PlayerData.source, giftcode.reward, tonumber(giftcode.amount), false, false, nil)
+                    elseif Config.Inventory == 'ox_inventory' then
+                        exports.ox_inventory:AddItem(Player.PlayerData.source, giftcode.reward, tonumber(giftcode.amount))
+                    end
                     TriggerClientEvent('ox_lib:notify', Player.PlayerData.source, {
                         description = Config.Notify['received_reward']:format(giftcode.amount, giftcode.reward),
                         type = 'success'
@@ -92,7 +99,7 @@ elseif Config.Framework == 'QBCore' then
                         description = Config.Notify['received_vehicle']:format(giftcode.reward),
                         type = 'success'
                     })
-                    TriggerClientEvent('pg_giftcode:SpawnVehicle', Player.PlayerData.source, giftcode.reward)
+                    TriggerClientEvent('pg_giftcode:SpawnVehicle', Player.PlayerData.source, giftcode.reward, giftcode.reward)
                 else
                     TriggerClientEvent('ox_lib:notify', Player.PlayerData.source, {
                         description = Config.Notify['invalid_reward'],
@@ -316,7 +323,7 @@ AddEventHandler('pg_giftcode:redeemGiftcode', function(input)
 end)
 
 RegisterServerEvent('pg_giftcode:giveVehicle')
-AddEventHandler('pg_giftcode:giveVehicle', function(vehicleProps, modelname)
+AddEventHandler('pg_giftcode:giveVehicle', function(vehicleProps, reward)
     if Config.Framework == 'ESX' then
         local xPlayer = ESX.GetPlayerFromId(source)
         if xPlayer then
@@ -330,14 +337,14 @@ AddEventHandler('pg_giftcode:giveVehicle', function(vehicleProps, modelname)
     elseif Config.Framework == 'QBCore' then
         local Player = QBCore.Functions.GetPlayer(source)
         local cid = Player.PlayerData.citizenid
-        local vehicle = modelname
+        local vehicleModel = reward
         local plate = vehicleProps.plate
         if Player then
             exports.oxmysql:execute('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, garage, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', {
                 Player.PlayerData.license,
                 cid,
-                vehicle,
-                GetHashKey(vehicleProps),
+                vehicleModel, 
+                GetHashKey(vehicleModel),
                 '{}',
                 plate,
                 'pillboxgarage',

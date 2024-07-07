@@ -1,10 +1,11 @@
 Config = {}
 
-Config.Framework = 'ESX' -- ESX, QBCore
+Config.Framework = 'QBCore' -- ESX, QBCore
 Config.CheckUserRedeem = false  -- Check if the player has entered a giftcode
 Config.LimitRedeem = false      -- Limit the number of times a giftcode can be entered in the server
 Config.ExpireGiftcode = false   -- Time when giftcode can be used
 Config.AllowedGroup = 'admin' -- Groups that can use the Command
+Config.Inventory = 'ox_inventory' -- ox_inventory, qb-inventory, ps-inventory
 
 Config.Notify = {
     ['cancelled_create'] = 'Giftcode creation has been cancelled.',

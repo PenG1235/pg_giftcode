@@ -8,12 +8,16 @@
 
 Features:
 - Support ESX, QBCore
-- Support Ox_Inventory
+- Support ox_Inventory, ps-inventory, qb-inventory
 - Limit players to enter Giftcode (configurable)
 - Each player can only enter Giftcode once (configurable)
 - Expiration time for Giftcode (configurable)
 - Optimization
 - Easy configuration
+
+**Update v1.0.1:**
+- Now supports qb-inventory, ps-inventory, ox_inventory
+- Improved QBCore code
 
 [PREVIEW](https://youtu.be/SbPKnBPbrWM)
 [DOWNLOAD](https://github.com/PenG1235/pg_giftcode)

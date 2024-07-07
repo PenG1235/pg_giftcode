@@ -20,7 +20,7 @@ Features:
 - Improved QBCore code
 
 [PREVIEW](https://youtu.be/SbPKnBPbrWM)
-[DOWNLOAD](https://github.com/PenG1235/pg_giftcode)
+[FORUM](https://forum.cfx.re/t/free-esx-qbcore-giftcode-system/5247588)
 
 **See more paid scripts**
 [PG Daily Rewards](https://forum.cfx.re/t/esx-qbcore-pg-dailyrewards/5246923)

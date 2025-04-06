@@ -1,5 +1,5 @@
 ----------
-# [FREE] [ESX/QBCORE] PG Giftcode System
+# [FREE] [ESX/QBCORE] Giftcode System
 
 **The system generates and enters Giftcode for your server**
 
@@ -16,13 +16,11 @@ Features:
 - Optimization
 - Easy configuration
 
-**Update v1.0.1:**
-- Now supports qb-inventory, ps-inventory, ox_inventory
-- Improved QBCore code
+**Review**
+- [Watch video](https://youtu.be/SbPKnBPbrWM)
 
-[PREVIEW](https://youtu.be/SbPKnBPbrWM)
-[FORUM](https://forum.cfx.re/t/free-esx-qbcore-giftcode-system/5247588)
+**Forum FiveM**
+- [Visit Post](https://forum.cfx.re/t/free-esx-qbcore-giftcode-system/5247588)
 
 **See more paid scripts**
-[PG Daily Rewards](https://forum.cfx.re/t/esx-qbcore-pg-dailyrewards/5246923)
-[PG Boss & Gang Menu](https://forum.cfx.re/t/esx-boss-gang-menu/5246206)
+- [Visit store](https://pgscripts.tebex.io/)

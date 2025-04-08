@@ -16,6 +16,9 @@ Features:
 - Optimization
 - Easy configuration
 
+**Discord**
+- [Join us](https://discord.gg/Y5vShuKRZK)
+
 **Review**
 - [Watch video](https://youtu.be/SbPKnBPbrWM)
 
